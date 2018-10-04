@@ -18,7 +18,7 @@ let l2 = {
 // let l1 = {val:2, next:null}
 // let l2 = {val:1, next:null}
 
-// let l1 
+// let l1
 // let l2 = {val:1, next:null}
 
 function ListNode (val) {
@@ -26,7 +26,8 @@ function ListNode (val) {
   this.next = null
 }
 
-// **code above this comment is for testing purposes only. it does not go in the leetcode submit box
+// **code above this line is for testing purposes only. it does not go in the leetcode submit box
+// ----------------------------------------------------------------------------------------------------
 
 var mergeTwoLists = function (l1, l2) {
   // initial check to see if there is no data or only one list
