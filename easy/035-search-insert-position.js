@@ -38,13 +38,12 @@ let target = 0;
 var searchInsert = function(nums, target) {
     // less than equal and greater than
     let targetIndex = 0;
-    
-    // if (nums[0] > target) {
-    //   return targetIndex;
-    // }
+
+    //corner case where the value is larger than the last value in nums
     if (nums[nums.length -1] < target) {
       return nums.length;
     }
+    
     for(let i = 0; i < nums.length; i ++) {
       if(nums[i] === target) {
         targetIndex = i;
