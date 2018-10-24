@@ -20,11 +20,13 @@ class Solution:
         binArr = []
         place = len(c) - 1
 
+        # create a decimal number from the binary sum 'c'
         for digit in c:
             digit = int(digit)
             decimalNum += digit * 2 ** place
             place -= 1
 
+        # convert the decimal back to binary using an array
         while decimalNum >= 1:
             binArr.insert(0, str(decimalNum % 2))
             decimalNum = decimalNum // 2
