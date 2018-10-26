@@ -22,9 +22,9 @@
 # for each index keep adding another letter and check if it has any repeats by creating a set and checking if the lengths match.
 #
 # s = "au"
-# s = "pwwkew"
+s = "pwwkew"
 # s = "bbbbb"
-s = ""
+# s = ""
 
 # utilized the sliding window technique
 
@@ -40,14 +40,14 @@ class Solution:
             return len(s)
 
         # initialize the sliding index. no need for a left index since we just pop off the first index when we slide
-        rightPointer = 1
+        pointer = 1
         # initialize the first element in the substring
         currentSubStrArr = [s[0]]
         # initialize the maxcount
         maxCount = len(currentSubStrArr)
 
         # iterate through the string until the right pointer hits the end
-        while rightPointer <= len(s):
+        while pointer <= len(s):
             #  create a set of the current subStr array
             currentSet = set(currentSubStrArr)
             # check if all the values in the substr array are unique
@@ -55,19 +55,24 @@ class Solution:
                 # update max count if the new substring is bigger
                 if len(currentSubStrArr) > maxCount:
                     maxCount = len(currentSubStrArr)
+
                 # only add to the substring array if the right pointer is still in range of original string
-                if rightPointer < len(s):
-                    currentSubStrArr.append(s[rightPointer])
-                # move the right pointer over one
-                rightPointer += 1
+                # was having some issues when this if statement was not there
+                # because the substrArr would be updated but we would not check for uniqueness until the next round
+                # where pointer would be out of range if the unique substring was at the end of the string. ex: 'au'
+                if pointer < len(s):
+                    currentSubStrArr.append(s[pointer])
+
             else:
               # if the substring has non unique characters shift the window over one to the right
               # only if the right index is still in range of s
-                if rightPointer < len(s):
-                    currentSubStrArr.append(s[rightPointer])
+                if pointer < len(s):
+                    currentSubStrArr.append(s[pointer])
                 # remove the left most element in the substring
                 currentSubStrArr.pop(0)
-                rightPointer += 1
+
+            # move the pointer over one to the right
+            pointer += 1
         return maxCount
 
 
