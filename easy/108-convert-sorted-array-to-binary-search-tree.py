@@ -23,7 +23,6 @@
 
 
 def populateTree(nodeArray):
-<<<<<<< HEAD
     # base case
     if len(nodeArray) == 0:
         return None
@@ -41,22 +40,6 @@ def populateTree(nodeArray):
     node.right = populateTree(rightArray)
     # return the node when finished
     return node
-=======
-    #  find mid point of the array
-    if len(nodeArray) == 0:
-        return None
-    midPoint = len(nodeArray) // 2
-    leftArray = nodeArray[:midPoint:]
-    rightArray = nodeArray[midPoint + 1::]
-    node = TreeNode(nodeArray[midPoint])
-    node.left = populateTree(leftArray)
-    node.right = populateTree(rightArray)
-    return node
-    # create a left and right array
-    # make midpoint that the current node
-    # recursively run the function with the left and right arrays node.left = and node.right =
-    #  return the node
->>>>>>> 8a06acd8f96de3322dde6f7ecf0ba3bac3ecc26b
 
 
 class Solution:
@@ -66,10 +49,3 @@ class Solution:
         :rtype: TreeNode
         """
         return populateTree(nums)
-<<<<<<< HEAD
-=======
-
-
-soln = Solution()
-print(soln.sortedArrayToBST([1, 2, 3, 4]).val)
->>>>>>> 8a06acd8f96de3322dde6f7ecf0ba3bac3ecc26b
