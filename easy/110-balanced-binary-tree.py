@@ -35,6 +35,7 @@
 
 
 def checkBalance(node):
+    # base case (reaches end of current branch)
     if node == None:
         return (0, True)
     leftDepth, leftBalance = checkBalance(node.left)
