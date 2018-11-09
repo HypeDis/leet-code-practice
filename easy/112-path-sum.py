@@ -26,25 +26,16 @@
 
 class Solution:
     def hasPathSum(self, root, sum):
-        """
-        :type root: TreeNode
-        :type sum: int
-        :rtype: bool
-        """
+
+        #  base case: either tree is empty
+        # or we reach the end of a branch without returning true
         if root == None:
             return False
 
-        return self.checkSum(root, sum)
+        # check if the last node in a branch is equal to the remaining sum value
+        if root and root.left == None and root.right == None and root.val == sum:
+            return True
 
-    def checkSum(self, root, sum):
-        if root == None:
-            if leftSum == sum or rightSum == sum:
-                return True
-            else:
-                return 0
-
-        leftSum = self.hasPathSum(root.left, sum) + root.val
-        rightSum = self.hasPathSum(root.left, sum) + root.val
-
-        return False
-        # return leftSum + root.val, rightSum + root.val
+        # recursively go through each branch, subracting the current nodes value from total sum
+        return self.hasPathSum(root.left, sum - root.val) \
+            or self.hasPathSum(root.right, sum - root.val)
