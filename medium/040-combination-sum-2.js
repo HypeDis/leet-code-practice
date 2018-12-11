@@ -29,10 +29,11 @@
 let candidates = [2,5,2,1,2];
 let target = 5;
 
-let combos = {};
-var combinationSum2 = function(candidates, target) {
+
+const combinationSum2 = function(candidates, target) {
   candidates.sort();
-  search(candidates, target, 0, []);
+  let combos = {};
+  search(candidates, target, 0, [], combos);
   let combosArr = [];
   for (let key in combos) {
     let combo = key.split(',');
@@ -42,7 +43,7 @@ var combinationSum2 = function(candidates, target) {
   return combosArr;
 };
 
-function search(nums, target, currentIndex, currentCombo) {
+function search(nums, target, currentIndex, currentCombo, combos) {
   if (target < 0) {
     return;
   }
@@ -51,8 +52,9 @@ function search(nums, target, currentIndex, currentCombo) {
     return;
   }
   for (let i = currentIndex; i < nums.length; i++) {
-    search(nums, target - nums[i], i + 1, currentCombo.concat(nums[i]))
+    search(nums, target - nums[i], i + 1, currentCombo.concat(nums[i]), combos)
   }
 }
 
-console.log(combinationSum2(candidates, target))
+console.log(combinationSum2(candidates, target));
+

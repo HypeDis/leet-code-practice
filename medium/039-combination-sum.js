@@ -36,14 +36,14 @@ A solution set is:
 // let target = 8;
 candidates = [8,7,4,3]
 target = 11
-let results = [];
+
 var combinationSum = function(candidates, target) {
   candidates.sort();
-  results = [];
-  search(candidates, target, 0, []);
+  let results = [];
+  search(candidates, target, 0, [], results);
   return results; 
 };
-const search = (nums, target, currentIndex, currentArray) => {
+const search = (nums, target, currentIndex, currentArray, results) => {
   if (target  < 0) {
     return;
   }
@@ -52,7 +52,7 @@ const search = (nums, target, currentIndex, currentArray) => {
     return;
   }
   for (let i = currentIndex; i < nums.length; i++) {
-    search(nums, target - nums[i], i, currentArray.concat(nums[i]))
+    search(nums, target - nums[i], i, currentArray.concat(nums[i]), results)
   }
 }
 console.log(combinationSum(candidates, target))
