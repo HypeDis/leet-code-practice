@@ -36,6 +36,7 @@ A solution set is:
 // let target = 8;
 candidates = [8,7,4,3]
 target = 11
+let results = [];
 var combinationSum = function(candidates, target) {
   candidates.sort();
   results = [];
