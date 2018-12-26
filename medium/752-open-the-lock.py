@@ -99,6 +99,7 @@ target = "0202"
 
 soln = Solution()
 print(soln.openLock(deadends, target))
+print('crlf')
 # print(soln.incrementAndDecrement([0, 0, 0, 0]))
 
 #  create a hashtable of used combos
